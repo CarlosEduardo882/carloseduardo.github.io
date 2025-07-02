@@ -97,13 +97,21 @@ body, html {
   padding: 2rem;
 }
 
+/* MENU LATERAL - FIXO COM EFEITOS */
 .menu-lateral {
   width: 25%;
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu-lateral ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .menu-lateral li {
@@ -116,17 +124,72 @@ body, html {
   text-decoration: none;
   font-weight: bold;
   font-family: 'Oxanium', sans-serif;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-lateral a::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #f0f0f0;
+  transform: scaleY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-lateral a:hover::before {
+  transform: scaleY(1);
 }
 
 .menu-lateral a:hover {
-  color: #c0c0c0;
+  color: #ffffff;
+  letter-spacing: 2px;
 }
 
-.menu-lateral li i {
-  margin-right: 10px;
-  color: #00ff88;
+/* CONTATO LATERAL - MAIS PARA BAIXO (embaixo do menu) */
+.contato-lateral {
+  margin-top: 150px;   /* mais perto do menu lateral */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: slideDown 1s ease-out;
+  position: fixed;
+  left: 20px;
+  top: 200px;         /* posiciona logo abaixo do menu lateral fixo */
+  bottom: auto;       /* remove a posição inferior fixa */
+  width: 25%;
+  z-index: 10;
 }
 
+
+.contato-item {
+  color: #00ff00;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: aparecerContato 0.8s forwards;
+}
+
+.contato-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes aparecerContato {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* PERFIL - FOTO E TEXTO */
 .perfil-info {
   flex: 1;
   padding-left: 2rem;
@@ -139,20 +202,23 @@ body, html {
 .foto-perfil {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
-.foto-placeholder {
-  width: 200px;
-  height: 200px;
+.imagem-perfil {
+  max-width: 250px;
+  max-height: 250px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
   border-radius: 50%;
-  background: #111;
-  border: 3px dashed #00ff88;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.9rem;
-  color: #888;
+  border: 3px solid #00ff00;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
 }
 
 .apresentacao {
@@ -173,6 +239,7 @@ body, html {
   line-height: 1.6;
 }
 
+/* Tecnologias rolando */
 .tecnologias-scroll {
   overflow: hidden;
   white-space: nowrap;
@@ -198,179 +265,7 @@ body, html {
   100% { transform: translateX(-100%); }
 }
 
-/* Placeholder para fotos futuras */
-.galeria-lateral {
-  width: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.placeholder-fotos {
-  border: 2px dashed #444;
-  padding: 3rem;
-  border-radius: 10px;
-  color: #666;
-  text-align: center;
-  width: 100%;
-}
-
-/* Página Sobre Mim */
-.sobre-mim {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 4rem 2rem;
-  background-color: #000;
-  color: #00ff88;
-}
-
-.texto-sobre {
-  max-width: 800px;
-  text-align: left;
-}
-
-.texto-sobre h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #c0c0c0;
-  font-family: 'Oxanium', sans-serif;
-}
-
-.texto-sobre p {
-  margin-bottom: 1.2rem;
-  line-height: 1.6;
-}
-
-.cursos-lista {
-  list-style-type: square;
-  margin: 1rem 0 2rem 1rem;
-}
-
-.cursos-lista li {
-  margin-bottom: 0.5rem;
-}
-
-/* Cursos complementares animados */
-.cursos-complementares {
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-  margin-top: 1.5rem;
-}
-
-.curso-box {
-  background-color: #111;
-  border-left: 4px solid #00ff88;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  transition: 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: subir 0.6s ease-out forwards;
-  animation-delay: calc(0.2s * var(--delay));
-}
-
-.curso-box:hover {
-  background-color: #1a1a1a;
-}
-
-.curso-box h4 {
-  font-size: 1.2rem;
-  color: #cccccc;
-  font-family: 'Oxanium', sans-serif;
-}
-
-.curso-box p {
-  margin-top: 0.5rem;
-  line-height: 1.5;
-  color: #00ff88;
-}
-
-.status {
-  font-size: 0.9rem;
-  font-style: italic;
-  color: #c0c0c0;
-}
-
-@keyframes subir {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.linha-decorativa {
-  position: relative;
-  display: inline-block;
-  margin: 40px auto;
-  padding: 20px 40px;
-  border-top: 2px solid #f0f0f0;
-  border-bottom: 2px solid #f0f0f0;
-}
-
-.linha-decorativa::before,
-.linha-decorativa::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #f0f0f0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.linha-decorativa::before {
-  left: -30px;
-}
-
-.linha-decorativa::after {
-  right: -30px;
-}
-
-#meu-nome {
-  color: #00ff00;
-  font-family: 'Orbitron', monospace;
-  text-align: center;
-  font-size: 2.5rem;
-}
-.menu-lateral {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 100px;
-  left: 20px;
-}
-
-.menu-lateral a {
-  color: #00ff00;
-  font-family: 'VT323', monospace;
-  font-size: 1.2rem;
-  text-decoration: none;
-  margin: 10px 0;
-  position: relative;
-  transition: all 0.3s ease-in-out;
-}
-
-.menu-lateral a::before {
-  content: "";
-  position: absolute;
-  left: -10px;
-  top: 0;
-  height: 100%;
-  width: 4px;
-  background-color: #f0f0f0;
-  transform: scaleY(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-.menu-lateral a:hover::before {
-  transform: scaleY(1);
-}
-
-.menu-lateral a:hover {
-  color: #ffffff;
-  letter-spacing: 2px;
-}
+/* Efeito do nome principal (container-nome e moldura) */
 .container-nome {
   display: flex;
   justify-content: center;
@@ -399,102 +294,80 @@ body, html {
 .meu-nome {
   color: #00ff00;
   font-family: 'Orbitron', monospace;
-  font-size: 2.5rem;
   text-align: center;
-  margin: 0;
-}
-.menu-lateral {
-  position: fixed;
-  top: 100px;
-  left: 20px;
-  z-index: 10;
+  font-size: 2.5rem;
 }
 
-.menu-lateral ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+/* RESPONSIVIDADE PARA PORTFÓLIO - TELAS PEQUENAS */
+@media (max-width: 600px) {
+  .conteudo-portfolio {
+    flex-direction: column;
+    padding: 1rem;
+  }
 
-.link-menu {
-  color: #00ff00;
-  font-family: 'VT323', monospace;
-  font-size: 1.2rem;
-  margin: 12px 0;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s ease;
-}
+  .menu-lateral {
+    position: relative;  /* tira o fixed só no celular */
+    width: 100%;
+    top: auto;
+    left: auto;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    background: transparent; /* garante sem fundo */
+    z-index: auto;
+    flex-direction: row;
+  }
 
-.link-menu::before {
-  content: "";
-  position: absolute;
-  left: -12px;
-  top: 50%;
-  transform: translateY(-50%) scaleY(0);
-  height: 100%;
-  width: 3px;
-  background-color: #f0f0f0;
-  transition: transform 0.3s ease;
-}
+  .menu-lateral ul {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
 
-.link-menu:hover {
-  color: #ffffff;
-  letter-spacing: 1px;
-}
+  .menu-lateral li {
+    margin: 0 10px;
+  }
 
-.link-menu:hover::before {
-  transform: translateY(-50%) scaleY(1);
-}
-.foto-perfil {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 30px 0;
-}
+  .perfil-info {
+    padding-left: 0;
+    width: 100%;
+  }
 
-.imagem-perfil {
-  max-width: 250px;
-  max-height: 250px;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  border: 3px solid #00ff00;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: block;
-}
-.contato-lateral {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  animation: slideDown 1s ease-out;
-}
+  .foto-perfil {
+    margin: 0 auto 20px;
+  }
 
-.contato-item {
-  color: #00ff00;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: default;
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: aparecerContato 0.8s forwards;
-}
+  .imagem-perfil {
+    max-width: 150px;
+    max-height: 150px;
+  }
 
-.contato-item:nth-child(2) {
-  animation-delay: 0.2s;
-}
+  .apresentacao {
+    max-width: 100%;
+    padding: 0 10px;
+  }
 
-@keyframes aparecerContato {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .tecnologias-scroll {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  /* CONTATO LATERAL MODIFICADO PARA CELULAR */
+  .contato-lateral {
+    position: relative;  /* tira fixed */
+    margin-top: 20px;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .contato-item {
+    font-size: 0.9rem;
   }
 }
