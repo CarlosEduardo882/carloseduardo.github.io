@@ -2,60 +2,73 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meu Portfólio - Carlos Eduardo Bueno</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio - Carlos Eduardo Bueno</title>
+  
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron&family=Oxanium&display=swap" rel="stylesheet" />
 </head>
-<body class="pagina-portfolio">
+<body>
 
-  <header class="cabecalho-portfolio">
-    <div class="container-nome">
-      <div class="moldura">
-        <h1 class="meu-nome">Carlos Eduardo Bueno</h1>
-      </div>
-    </div>
-    <p class="subtitulo">Seja bem-vindo ao meu portfólio</p>
-  </header>
+  <!-- Wrapper fullPage.js -->
+  <div id="fullpage">
 
-  <main class="conteudo-portfolio">
-
-    <!-- Menu lateral (corrigido para evitar duplicação) -->
-    <nav class="menu-lateral">
-      <ul>
-        <li class="link-menu"><a href="sobre.html"><i class="fa fa-user"></i> Sobre Mim</a></li>
-        <li class="link-menu"><a href="experiencias.html"><i class="fa fa-briefcase"></i> Experiências</a></li>
-        <li class="link-menu"><a href="formacoes.html"><i class="fa fa-graduation-cap"></i> Formações</a></li>
-        <li class="link-menu"><a href="projetos.html"><i class="fa fa-folder-open"></i> Projetos</a></li>
-      </ul>
-    </nav>
-
-    <!-- Contato lateral separado do menu -->
-    <div class="contato-lateral">
-      <div class="contato-item">
-        <i class="fa fa-envelope"></i> carlos.edu278@outlook.com
-      </div>
-      <div class="contato-item">
-        <i class="fa fa-whatsapp"></i> (11) 9 9537-6971
+    <!-- Seção 1: Hero / Início -->
+    <div class="section hero">
+      <div id="particles-js" class="particles-bg"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Olá! Eu sou Carlos Eduardo<br><span class="destaque">Desenvolvedor Web</span></h1>
+          <p>Transformo ideias em soluções digitais com criatividade, foco e performance.</p>
+          <div class="redes-sociais">
+            <a href="https://www.linkedin.com/in/carlos-eduardo-bueno-4610901b4/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://www.instagram.com/tokobueno/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="mailto:carlos.edu278@email.com" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://github.com/CarlosEduardo882" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Conteúdo principal com foto, descrição e tecnologias -->
-    <section class="perfil-info">
-
-      <!-- Foto com efeito -->
-      <div class="foto-perfil">
-        <img src="foto.png" alt="Carlos Eduardo Bueno" class="imagem-perfil" />
+    <!-- Seção 2: Sobre Mim -->
+    <div class="section sobre-mim">
+      <div class="sobre-container">
+        <div class="foto-sobre">
+          <img src="foto.png" alt="Carlos Eduardo Bueno" />
+        </div>
+        <div class="texto-sobre">
+          <h2 class="titulo-branco">Sobre Mim</h2>
+          <p>Sou Carlos Eduardo Bueno, apaixonado por tecnologia e desenvolvimento web. Busco transformar ideias em soluções práticas com criatividade, responsabilidade e visão de futuro.</p>
+        </div>
       </div>
+    </div>
 
-      <!-- Texto de apresentação -->
-      <div class="apresentacao">
-        <h2>Desenvolvedor Web focado em resultados</h2>
-        <p>Sou Carlos Eduardo Bueno, apaixonado por tecnologia e desenvolvimento web. Busco transformar ideias em soluções práticas com criatividade, responsabilidade e visão de futuro.</p>
+    <!-- Seção 3: Formações + Tecnologias -->
+    <div class="section formacoes">
+      <h2 class="titulo-principal">Formações</h2>
+      <div class="lista-formacoes">
+        <div class="formacao">Análise e Desenvolvimento de Sistemas (em andamento)</div>
+        <div class="formacao">HTML5, CSS3, JavaScript</div>
+        <div class="formacao">Desenvolvimento WordPress com Elementor</div>
+        <div class="formacao">MySQL e Banco de Dados</div>
+        <div class="formacao">Git e GitHub</div>
+        <div class="formacao">APIs REST e Consumo via JavaScript</div>
+        <div class="formacao">Lógica de Programação</div>
+        <div class="formacao">Linguagem Python</div>
+        <div class="formacao">Curso Técnico em Informática</div>
+        <div class="formacao">Inspetor de Qualidade</div>
       </div>
-
-      <!-- Tecnologias rolando -->
       <div class="tecnologias-scroll">
         <div class="faixa">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
@@ -70,9 +83,34 @@
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" />
         </div>
       </div>
+    </div>
 
-    </section>
-  </main>
+  </div> <!-- fim do #fullpage -->
 
+  <!-- Botão flutuante do WhatsApp -->
+  <a href="https://wa.me/5511995376971" target="_blank" class="whatsapp-float" rel="noopener noreferrer" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="particles.js"></script> <!-- seu arquivo local, verifique caminho -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+
+  <script>
+    new fullpage('#fullpage', {
+      autoScrolling: true,
+      navigation: true,
+      anchors: ['inicio', 'sobre', 'formacoes'],
+      navigationTooltips: ['Início', 'Sobre Mim', 'Formações'],
+      showActiveTooltip: true,
+      scrollOverflow: true,
+    });
+
+    // Opcional: rebuild após meio segundo para ajustar alturas
+    setTimeout(() => {
+      fullpage_api.reBuild();
+    }, 500);
+  </script>
 </body>
 </html>

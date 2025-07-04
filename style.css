@@ -11,363 +11,321 @@ body, html {
   font-family: 'Orbitron', sans-serif;
   overflow-x: hidden;
   color: #00ff88;
+  scroll-behavior: smooth;
 }
 
-/* Página inicial - index.html */
-.container {
+/* HERO INICIAL */
+.hero {
+  position: relative;
+  background: #000000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+#particles-js.particles-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.nome {
-  font-size: 4vw;
-  background: linear-gradient(270deg, #00ff88, #c0c0c0, #00ff88);
-  background-size: 600% 600%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientAnim 5s ease infinite;
-  text-align: center;
-  width: 80%;
-}
 
-@keyframes gradientAnim {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.btn-container {
-  margin-top: 40px;
-  animation: fadeIn 2s ease forwards;
-  opacity: 0;
-  animation-delay: 1s;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.botao {
-  text-decoration: none;
-  padding: 15px 30px;
-  background: #00ff88;
-  color: #000;
-  font-weight: bold;
-  border-radius: 30px;
-  transition: 0.3s;
-  box-shadow: 0 0 15px #00ff88;
-  font-family: 'Oxanium', sans-serif;
-}
-
-.botao:hover {
-  background: #c0c0c0;
-  color: #000;
-  box-shadow: 0 0 20px #c0c0c0;
-}
-
-/* Cabeçalho das outras páginas */
-.cabecalho-portfolio {
-  text-align: center;
-  padding: 3rem 1rem 1rem;
+.hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  z-index: 1;
+  text-align: center;
+  gap: 30px;
+  padding: 0 20px;
 }
 
-.subtitulo {
+.hero-text h1 {
+  font-size: 3rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+}
+
+.hero-text .destaque {
+  color: #00ff88;
+}
+
+.hero-text p {
   font-size: 1.3rem;
-  color: #c0c0c0;
-  font-style: italic;
-  margin-top: 0.5rem;
-  font-family: 'Oxanium', sans-serif;
+  color: #ccc;
+  font-family: 'Share Tech Mono', monospace;
 }
 
-/* Layout geral da página portfolio.html */
-.conteudo-portfolio {
+.redes-sociais {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 2rem;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
-/* MENU LATERAL - FIXO COM EFEITOS */
-.menu-lateral {
-  width: 25%;
-  position: fixed;
-  top: 100px;
-  left: 20px;
-  z-index: 10;
+.redes-sociais a {
   display: flex;
-  flex-direction: column;
-}
-
-.menu-lateral ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu-lateral li {
-  margin: 1.5rem 0;
-  font-size: 1.2rem;
-}
-
-.menu-lateral a {
+  align-items: center;
+  gap: 6px;
   color: #00ff88;
   text-decoration: none;
-  font-weight: bold;
   font-family: 'Oxanium', sans-serif;
-  position: relative;
-  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: rgba(0, 255, 136, 0.1);
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+}
+.redes-sociais a {
+  color: #00ff88;
+  text-decoration: none;
+  font-family: 'Oxanium', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.3s ease;
 }
 
-.menu-lateral a::before {
-  content: "";
-  position: absolute;
-  left: -10px;
-  top: 0;
-  height: 100%;
-  width: 4px;
-  background-color: #f0f0f0;
-  transform: scaleY(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-.menu-lateral a:hover::before {
-  transform: scaleY(1);
-}
-
-.menu-lateral a:hover {
-  color: #ffffff;
-  letter-spacing: 2px;
-}
-
-/* CONTATO LATERAL - MAIS PARA BAIXO (embaixo do menu) */
-.contato-lateral {
-  margin-top: 150px;   /* mais perto do menu lateral */
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  animation: slideDown 1s ease-out;
-  position: fixed;
-  left: 20px;
-  top: 200px;         /* posiciona logo abaixo do menu lateral fixo */
-  bottom: auto;       /* remove a posição inferior fixa */
-  width: 25%;
-  z-index: 10;
+.redes-sociais a:hover {
+  background-color: #00ff88;
+  color: #000;
 }
 
 
-.contato-item {
-  color: #00ff00;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 1.1rem;
+.redes-sociais i {
+  margin-left: 5px;
+}
+
+/* SOBRE MIM */
+.sobre-mim {
+  padding: 80px 20px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  cursor: default;
+  justify-content: center;
+  background: #0a0a0a;
+  min-height: 100vh;
+}
+
+.sobre-container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  gap: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.foto-sobre img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 4px solid #00ff88;
+  object-fit: cover;
+  box-shadow: 0 0 25px #00ff88;
+}
+
+.texto-sobre {
+  max-width: 600px;
+}
+
+.texto-sobre h2.titulo-branco {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-family: 'Oxanium', sans-serif;
+}
+
+.texto-sobre p {
+  font-size: 1.15rem;
+  color: #ccc;
+  line-height: 1.7;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* FORMAÇÕES + TECNOLOGIAS */
+.formacoes {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.titulo-principal {
+  font-size: 2.5rem;
+  color: #00ff88;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.lista-formacoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.formacao {
+  background-color: #111;
+  border-left: 4px solid #00ff88;
+  padding: 30px 20px;
+  color: #ccc;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+  animation: fadeInUp 0.6s ease forwards;
   opacity: 0;
-  transform: translateY(-20px);
-  animation: aparecerContato 0.8s forwards;
 }
 
-.contato-item:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-@keyframes aparecerContato {
+@keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* PERFIL - FOTO E TEXTO */
-.perfil-info {
-  flex: 1;
-  padding-left: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.foto-perfil {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.imagem-perfil {
-  max-width: 250px;
-  max-height: 250px;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  border: 3px solid #00ff00;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: block;
-}
-
-.apresentacao {
-  text-align: center;
-  max-width: 600px;
-  margin-top: 1rem;
-}
-
-.apresentacao h2 {
-  color: #c0c0c0;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  font-family: 'Oxanium', sans-serif;
-}
-
-.apresentacao p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* Tecnologias rolando */
 .tecnologias-scroll {
   overflow: hidden;
   white-space: nowrap;
-  padding: 1rem 0;
-  margin-top: 1rem;
-  max-width: 600px;
+  padding: 2rem 0;
+  background-color: transparent;
 }
 
 .faixa {
   display: inline-block;
-  animation: deslizar 15s linear infinite;
+  animation: deslizar 20s linear infinite;
 }
 
 .faixa img {
-  width: 45px;
-  margin: 0 12px;
+  width: 40px;
+  margin: 0 16px;
   vertical-align: middle;
-  filter: grayscale(0%);
+  filter: brightness(1.2) drop-shadow(0 0 6px #00ff88);
 }
 
 @keyframes deslizar {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
-
-/* Efeito do nome principal (container-nome e moldura) */
-.container-nome {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 60px;
-  padding: 20px;
-  z-index: 2;
-}
-
-.moldura {
-  border: 2px solid #f0f0f0; /* branco off */
-  border-radius: 12px;
-  padding: 20px 40px;
-  display: inline-block;
-  box-shadow: 0 0 15px rgba(240, 240, 240, 0.2);
-  position: relative;
-  background-color: transparent;
-  transition: transform 0.3s ease;
-}
-
-.moldura:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 25px rgba(240, 240, 240, 0.3);
-}
-
-.meu-nome {
-  color: #00ff00;
-  font-family: 'Orbitron', monospace;
-  text-align: center;
-  font-size: 2.5rem;
-}
-
-/* RESPONSIVIDADE PARA PORTFÓLIO - TELAS PEQUENAS */
-@media (max-width: 600px) {
-  .conteudo-portfolio {
+@media (max-width: 768px) {
+  .sobre-container {
     flex-direction: column;
-    padding: 1rem;
+    text-align: center;
   }
 
-  .menu-lateral {
-    position: relative;  /* tira o fixed só no celular */
-    width: 100%;
-    top: auto;
-    left: auto;
+  .foto-sobre img {
+    width: 200px;
+    height: 200px;
+  }
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #00ff88;
+  color: #000;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 24px;
+  z-index: 999;
+  box-shadow: 0 0 10px #00ff88;
+  transition: 0.3s;
+}
+.whatsapp-float:hover {
+  background-color: #fff;
+  color: #00ff88;
+}
+.hero-text p {
+  margin-bottom: 20px;
+}
+.section {
+  height: 100vh !important;
+}
+@media (max-width: 768px) {
+  /* Container Sobre Mim: fica em coluna e centralizado */
+  .sobre-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Ajusta tamanho da foto e texto para caber melhor */
+  .foto-sobre img {
+    width: 180px;
+    height: 180px;
     margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    background: transparent; /* garante sem fundo */
-    z-index: auto;
-    flex-direction: row;
   }
 
-  .menu-lateral ul {
-    display: flex;
+  /* Texto sobre mim com largura máxima e margens para respirar */
+  .texto-sobre {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  /* Ajusta o título para ser menor */
+  .texto-sobre h2.titulo-branco {
+    font-size: 1.6rem;
+  }
+
+  /* Ajusta o parágrafo para melhor leitura */
+  .texto-sobre p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Formações - ajustar grid para 1 coluna */
+  .lista-formacoes {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  /* Ajusta tamanho do título principal */
+  .titulo-principal {
+    font-size: 2rem;
+  }
+
+  /* Ajusta largura do container geral das formações */
+  .formacoes {
+    padding: 50px 10px;
+  }
+
+  /* Hero section: texto menor, melhor espaçamento */
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  /* Espaçamento entre redes sociais e texto */
+  .hero-text p {
+    margin-bottom: 30px;
+  }
+
+  /* Ajusta as redes sociais para ficarem centralizadas e espaçadas */
+  .redes-sociais {
+    flex-direction: column;
     gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
   }
 
-  .menu-lateral li {
-    margin: 0 10px;
-  }
-
-  .perfil-info {
-    padding-left: 0;
-    width: 100%;
-  }
-
-  .foto-perfil {
-    margin: 0 auto 20px;
-  }
-
-  .imagem-perfil {
-    max-width: 150px;
-    max-height: 150px;
-  }
-
-  .apresentacao {
-    max-width: 100%;
-    padding: 0 10px;
-  }
-
-  .tecnologias-scroll {
-    max-width: 100%;
-    padding: 0 10px;
-  }
-
-  /* CONTATO LATERAL MODIFICADO PARA CELULAR */
-  .contato-lateral {
-    position: relative;  /* tira fixed */
-    margin-top: 20px;
-    bottom: auto;
-    left: auto;
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .contato-item {
-    font-size: 0.9rem;
+  /* Botão whatsapp menor no celular */
+  .whatsapp-float {
+    padding: 10px;
+    font-size: 20px;
+    bottom: 15px;
+    right: 15px;
   }
 }
