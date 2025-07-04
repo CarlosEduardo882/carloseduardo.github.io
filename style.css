@@ -329,3 +329,20 @@ body, html {
     right: 15px;
   }
 }
+@media (max-width: 768px) {
+  .tecnologias-scroll {
+    overflow-x: auto !important;  /* Permite scroll horizontal no celular */
+    -webkit-overflow-scrolling: touch; /* Rolagem suave iOS */
+  }
+  .faixa {
+    animation: none !important;  /* Desativa animação no celular */
+    display: inline-flex !important;
+    min-width: max-content !important;  /* Garante que a faixa não quebre */
+    gap: 12px;
+    padding: 10px 0;
+  }
+  .faixa img {
+    width: 32px !important;  /* Ajusta o tamanho das imagens */
+    margin: 0 8px !important;
+  }
+}
