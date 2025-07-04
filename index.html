@@ -5,15 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carlos Eduardo Bueno</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      background-color: #000;
+      color: #00ff88;
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .container {
+      animation: fadeInUp 1.2s ease forwards;
+    }
+    .nome {
+      font-size: 3.5rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00ff88;
+    }
+    .botao {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #000;
+      background-color: #00ff88;
+      padding: 15px 40px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 20px #00ff88;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .botao:hover {
+      background-color: #00cc6a;
+      color: #fff;
+      box-shadow: 0 0 30px #00cc6a;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 600px) {
+      .nome {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+      }
+      .botao {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1 class="nome">Carlos Eduardo Bueno</h1>
-    <div class="btn-container">
-      <a href="portfolio.html" class="botao">Meu Portfólio</a>
-    </div>
+    <a href="portfolio.html" class="botao" role="button" aria-label="Acessar meu portfólio">Meu Portfólio</a>
   </div>
 </body>
 </html>
