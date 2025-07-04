@@ -297,10 +297,13 @@ body, html {
   }
 
   /* Ajusta largura do container geral das formações */
-  .formacoes {
-    padding: 50px 10px;
+  
+ .formacoes {
+    min-height: auto !important;
+    height: auto !important;
+    padding-bottom: 60px; /* espaço extra pra scroll */
   }
-
+}
   /* Hero section: texto menor, melhor espaçamento */
   .hero-text h1 {
     font-size: 2rem;
@@ -316,10 +319,13 @@ body, html {
   }
 
   /* Ajusta as redes sociais para ficarem centralizadas e espaçadas */
+ 
   .redes-sociais {
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: column !important;
+    gap: 15px !important;
+    align-items: center;
   }
+}
 
   /* Botão whatsapp menor no celular */
   .whatsapp-float {
@@ -344,5 +350,66 @@ body, html {
   .faixa img {
     width: 32px !important;  /* Ajusta o tamanho das imagens */
     margin: 0 8px !important;
+  }
+}
+@media (min-width: 769px) {
+  .hero-content {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .redes-sociais {
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+  }
+}
+/* Ajustes para redes sociais e seção hero - corrigir layout desktop e mobile */
+
+@media (min-width: 769px) {
+  .hero-content {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+  }
+  .redes-sociais {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    align-items: center !important;
+  }
+  .redes-sociais a {
+    white-space: nowrap; /* impede quebra dentro dos links */
+  }
+  .hero {
+    min-height: 100vh !important;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 30px !important;
+  }
+  .redes-sociais {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    align-items: center !important;
+  }
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 40px 20px !important;
   }
 }

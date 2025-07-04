@@ -37,7 +37,7 @@ particlesJS("particles-js", {
 });
 document.addEventListener('DOMContentLoaded', () => {
   new fullpage('#fullpage', {
-    autoScrolling: true,
+    autoScrolling: window.innerWidth > 768, 
     navigation: true,
     anchors: ['inicio', 'sobre', 'formacoes'],
     navigationTooltips: ['Início', 'Sobre Mim', 'Formações'],
