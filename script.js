@@ -35,3 +35,49 @@ particlesJS("particles-js", {
   },
   "retina_detect": true
 });
+document.addEventListener('DOMContentLoaded', function () {
+  const projetos = document.querySelectorAll('.projeto-item');
+  const btnEsquerda = document.querySelector('.seta.esquerda');
+  const btnDireita = document.querySelector('.seta.direita');
+  let atual = 0;
+  let intervalo;
+
+  function mostrarProjeto(index) {
+    projetos.forEach((item, i) => {
+      item.classList.remove('ativo');
+      item.style.zIndex = 0;
+      if (i === index) {
+        item.classList.add('ativo');
+        item.style.zIndex = 1;
+      }
+    });
+  }
+
+  function proximoProjeto() {
+    atual = (atual + 1) % projetos.length;
+    mostrarProjeto(atual);
+  }
+
+  function iniciarAutoplay() {
+    intervalo = setInterval(proximoProjeto, 5000);
+  }
+
+  function reiniciarAutoplay() {
+    clearInterval(intervalo);
+    iniciarAutoplay();
+  }
+
+  btnEsquerda.addEventListener('click', () => {
+    atual = (atual - 1 + projetos.length) % projetos.length;
+    mostrarProjeto(atual);
+    reiniciarAutoplay();
+  });
+
+  btnDireita.addEventListener('click', () => {
+    proximoProjeto();
+    reiniciarAutoplay();
+  });
+
+  mostrarProjeto(atual);
+  iniciarAutoplay();
+});

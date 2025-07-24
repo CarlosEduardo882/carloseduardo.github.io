@@ -19,7 +19,7 @@
   <div id="fullpage">
 
     <!-- Seção 1: Hero / Início -->
-    <div class="section hero">
+    <div class="section hero" data-anchor="inicio">
       <div id="particles-js" class="particles-bg"></div>
       <div class="hero-content">
         <div class="hero-text">
@@ -44,7 +44,7 @@
     </div>
 
     <!-- Seção 2: Sobre Mim -->
-    <div class="section sobre-mim">
+    <div class="section sobre-mim" data-anchor="sobre">
       <div class="sobre-container">
         <div class="foto-sobre">
           <img src="foto.png" alt="Carlos Eduardo Bueno" />
@@ -56,8 +56,61 @@
       </div>
     </div>
 
-    <!-- Seção 3: Formações + Tecnologias -->
-    <div class="section formacoes">
+    <!-- Seção 3: Projetos -->
+ <div class="section projetos" data-anchor="projetos">
+  <h2 class="titulo-principal">Projetos</h2>
+  <div class="projetos-carousel">
+    <button class="seta esquerda">&#10094;</button>
+
+    <div class="projeto-item ativo">
+      <img src="foto2.png" alt="DevMatch" class="imagem-projeto">
+      <div class="tecnologias">
+        <span class="tag flask">Flask</span>
+        <span class="tag python">Python</span>
+        <span class="tag html">HTML</span>
+        <span class="tag css">CSS</span>
+      </div>
+      <p class="descricao-projeto">
+        Plataforma que conecta devs com projetos ideais. Interface com Flask, recomendação com IA e exportação em PDF.
+      </p>
+      <a href="https://github.com/CarlosEduardo882/devmatch" class="ver-mais" target="_blank">Ver mais</a>
+    </div>
+
+    <div class="projeto-item">
+      <img src="img/bebe-ethan.png" alt="Site Bebê Ethan" class="imagem-projeto">
+      <div class="tecnologias">
+        <span class="tag html">HTML</span>
+        <span class="tag css">CSS</span>
+        <span class="tag js">JavaScript</span>
+      </div>
+      <p class="descricao-projeto">
+        Site comemorativo com tema de ursinhos e Palmeiras para o nascimento do meu filho, com animações suaves.
+      </p>
+      <a href="https://github.com/CarlosEduardo882/bebe-ethan" class="ver-mais" target="_blank">Ver mais</a>
+    </div>
+
+    <div class="projeto-item">
+      <img src="foto3.png" alt="Unfollow Check" class="imagem-projeto">
+     <div class="tecnologias">
+  <span class="tag python">Python</span>
+  <span class="tag selenium">Selenium</span>
+  <span class="tag">Web Automation</span>
+</div>
+
+      <p class="descricao-projeto">
+  Script que analisa sua conta do Instagram e mostra quem você segue que não te segue de volta. Automatiza o login, coleta de dados e apresenta o resultado de forma clara e rápida.
+</p>
+
+      <a href="https://github.com/CarlosEduardo882/carloseduardo.github.io" class="ver-mais" target="_blank">Ver mais</a>
+    </div>
+
+    <button class="seta direita">&#10095;</button>
+  </div>
+</div>
+
+
+    <!-- Seção 4: Formações + Tecnologias -->
+    <div class="section formacoes" data-anchor="formacoes">
       <h2 class="titulo-principal">Formações</h2>
       <div class="lista-formacoes">
         <div class="formacao">Análise e Desenvolvimento de Sistemas (em andamento)</div>
@@ -96,23 +149,23 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-  <script src="particles.js"></script> <!-- seu arquivo local, verifique caminho -->
+  <script src="particles.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
 
   <script>
     new fullpage('#fullpage', {
       autoScrolling: true,
       navigation: true,
-      anchors: ['inicio', 'sobre', 'formacoes'],
-      navigationTooltips: ['Início', 'Sobre Mim', 'Formações'],
+      anchors: ['inicio', 'sobre', 'projetos', 'formacoes'],
+      navigationTooltips: ['Início', 'Sobre Mim', 'Projetos', 'Formações'],
       showActiveTooltip: true,
       scrollOverflow: true,
     });
 
-    // Opcional: rebuild após meio segundo para ajustar alturas
     setTimeout(() => {
       fullpage_api.reBuild();
     }, 500);
   </script>
+  <script src="script.js"></script>
 </body>
 </html>

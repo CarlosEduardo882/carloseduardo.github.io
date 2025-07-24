@@ -1,3 +1,5 @@
+/* === CSS GERAL E CORRIGIDO === */
+
 /* Reset e base */
 * {
   margin: 0;
@@ -36,7 +38,6 @@ body, html {
   pointer-events: none;
 }
 
-
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -61,6 +62,7 @@ body, html {
   font-size: 1.3rem;
   color: #ccc;
   font-family: 'Share Tech Mono', monospace;
+  margin-bottom: 30px;
 }
 
 .redes-sociais {
@@ -69,6 +71,7 @@ body, html {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .redes-sociais a {
   display: flex;
   align-items: center;
@@ -83,21 +86,13 @@ body, html {
   border-radius: 8px;
   transition: 0.3s ease;
   box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
-}
-.redes-sociais a {
-  color: #00ff88;
-  text-decoration: none;
-  font-family: 'Oxanium', sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: 0.3s ease;
+  white-space: nowrap;
 }
 
 .redes-sociais a:hover {
   background-color: #00ff88;
   color: #000;
 }
-
 
 .redes-sociais i {
   margin-left: 5px;
@@ -149,7 +144,7 @@ body, html {
   font-family: 'Share Tech Mono', monospace;
 }
 
-/* FORMAÇÕES + TECNOLOGIAS */
+/* FORMAÇÕES */
 .formacoes {
   padding: 100px 20px;
   text-align: center;
@@ -220,6 +215,130 @@ body, html {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
+
+/* === PROJETOS AJUSTADO === */
+.section.projetos {
+  height: auto !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+  background-color: #0a0a0a;
+}
+
+.projetos-carousel {
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  min-height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.projeto-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  background-color: #111;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+  color: #ccc;
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projeto-item.ativo {
+  opacity: 1;
+  z-index: 10;
+}
+
+.imagem-projeto {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Mostra a imagem inteira sem cortar */
+  max-height: 300px; /* Limite de altura, você pode ajustar */
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.tecnologias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tag {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 20px;
+  color: #000;
+  font-family: 'Oxanium', sans-serif;
+  background-color: #00ff88;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.tag.html { background-color: #e44d26; color: #fff; }
+.tag.css { background-color: #264de4; color: #fff; }
+.tag.js { background-color: #f0db4f; color: #000; }
+.tag.python { background-color: #3572A5; color: #fff; }
+.tag.flask { background-color: #000; color: #fff; }
+
+.descricao-projeto {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 15px;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000;
+  border: 2px solid #00ff88;
+  color: #00ff88;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 20;
+  padding: 10px 15px;
+  border-radius: 50%;
+  transition: 0.3s;
+  box-shadow: 0 0 15px #00ff88;
+}
+
+.seta:hover {
+  background-color: #00ff88;
+  color: #000;
+  box-shadow: 0 0 25px #00ff88;
+}
+
+.seta.esquerda {
+  left: -40px;
+}
+
+.seta.direita {
+  right: -40px;
+}
+
+/* === RESPONSIVO === */
 @media (max-width: 768px) {
   .sobre-container {
     flex-direction: column;
@@ -227,10 +346,93 @@ body, html {
   }
 
   .foto-sobre img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+  }
+
+  .texto-sobre {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .texto-sobre h2.titulo-branco {
+    font-size: 1.6rem;
+  }
+
+  .texto-sobre p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .lista-formacoes {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .titulo-principal {
+    font-size: 2rem;
+  }
+
+  .formacoes {
+    padding-bottom: 60px;
+  }
+
+  .projetos-carousel {
+    min-height: auto;
+    height: auto;
+  }
+
+  .projeto-item {
+    padding: 20px;
+    font-size: 0.95rem;
+    border-radius: 12px;
+  }
+
+  .imagem-projeto {
+    height: 160px;
+  }
+
+  .seta {
+    font-size: 1.5rem;
+    padding: 8px 12px;
+  }
+
+  .seta.esquerda {
+    left: 10px;
+  }
+
+  .seta.direita {
+    right: 10px;
+  }
+
+  .tecnologias-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .faixa {
+    animation: none;
+    display: inline-flex;
+    min-width: max-content;
+    gap: 12px;
+    padding: 10px 0;
+  }
+
+  .faixa img {
+    width: 32px;
+    margin: 0 8px;
+  }
+
+  .whatsapp-float {
+    padding: 10px;
+    font-size: 20px;
+    bottom: 15px;
+    right: 15px;
   }
 }
+
+/* === WHATSAPP FLOAT === */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -244,172 +446,16 @@ body, html {
   box-shadow: 0 0 10px #00ff88;
   transition: 0.3s;
 }
+
 .whatsapp-float:hover {
   background-color: #fff;
   color: #00ff88;
 }
-.hero-text p {
-  margin-bottom: 20px;
-}
-.section {
-  height: 100vh !important;
-}
-@media (max-width: 768px) {
-  /* Container Sobre Mim: fica em coluna e centralizado */
-  .sobre-container {
-    flex-direction: column;
-    text-align: center;
-  }
 
-  /* Ajusta tamanho da foto e texto para caber melhor */
-  .foto-sobre img {
-    width: 180px;
-    height: 180px;
-    margin-bottom: 20px;
-  }
-
-  /* Texto sobre mim com largura máxima e margens para respirar */
-  .texto-sobre {
-    max-width: 100%;
-    padding: 0 10px;
-  }
-
-  /* Ajusta o título para ser menor */
-  .texto-sobre h2.titulo-branco {
-    font-size: 1.6rem;
-  }
-
-  /* Ajusta o parágrafo para melhor leitura */
-  .texto-sobre p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  /* Formações - ajustar grid para 1 coluna */
-  .lista-formacoes {
-    grid-template-columns: 1fr;
-    padding: 0 10px;
-  }
-
-  /* Ajusta tamanho do título principal */
-  .titulo-principal {
-    font-size: 2rem;
-  }
-
-  /* Ajusta largura do container geral das formações */
-  
- .formacoes {
-    min-height: auto !important;
-    height: auto !important;
-    padding-bottom: 60px; /* espaço extra pra scroll */
-  }
-}
-  /* Hero section: texto menor, melhor espaçamento */
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-  
-  .hero-text p {
-    font-size: 1rem;
-  }
-
-  /* Espaçamento entre redes sociais e texto */
-  .hero-text p {
-    margin-bottom: 30px;
-  }
-
-  /* Ajusta as redes sociais para ficarem centralizadas e espaçadas */
- 
-  .redes-sociais {
-    flex-direction: column !important;
-    gap: 15px !important;
-    align-items: center;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-  /* Botão whatsapp menor no celular */
-  .whatsapp-float {
-    padding: 10px;
-    font-size: 20px;
-    bottom: 15px;
-    right: 15px;
-  }
-}
-@media (max-width: 768px) {
-  .tecnologias-scroll {
-    overflow-x: auto !important;  /* Permite scroll horizontal no celular */
-    -webkit-overflow-scrolling: touch; /* Rolagem suave iOS */
-  }
-  .faixa {
-    animation: none !important;  /* Desativa animação no celular */
-    display: inline-flex !important;
-    min-width: max-content !important;  /* Garante que a faixa não quebre */
-    gap: 12px;
-    padding: 10px 0;
-  }
-  .faixa img {
-    width: 32px !important;  /* Ajusta o tamanho das imagens */
-    margin: 0 8px !important;
-  }
-}
-@media (min-width: 769px) {
-  .hero-content {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .redes-sociais {
-    flex-wrap: nowrap !important;
-    justify-content: center !important;
-  }
-}
-/* Ajustes para redes sociais e seção hero - corrigir layout desktop e mobile */
-
-@media (min-width: 769px) {
-  .hero-content {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 30px;
-  }
-  .redes-sociais {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    justify-content: center !important;
-    gap: 20px !important;
-    align-items: center !important;
-  }
-  .redes-sociais a {
-    white-space: nowrap; /* impede quebra dentro dos links */
-  }
-  .hero {
-    min-height: 100vh !important;
-    padding: 0 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-content {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    gap: 30px !important;
-  }
-  .redes-sociais {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 15px !important;
-    align-items: center !important;
-  }
-  .hero {
-    min-height: auto !important;
-    height: auto !important;
-    padding: 40px 20px !important;
-  }
+section.projetos {
+  scroll-margin-top: 100px;
 }
